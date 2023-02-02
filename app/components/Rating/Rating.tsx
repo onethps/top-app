@@ -1,11 +1,10 @@
-import { RatingProps } from "./Rating.Props";
-import Star from "../../assets/Star.svg";
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
+
+import Star from '../../assets/Star.svg';
+import { RatingProps } from './Rating.Props';
 
 export const Rating: React.FC<RatingProps> = ({ ...props }) => {
-  const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(
-    new Array(5).fill(<></>)
-  );
+  const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {
     constructRating(5);

@@ -1,5 +1,6 @@
-import React, { HTMLAttributes } from "react";
-import { Menu } from "./Menu/Menu";
+import React, { HTMLAttributes } from 'react';
+
+import { Menu } from './Menu/Menu';
 
 interface ISidebarProps extends HTMLAttributes<HTMLDivElement> {}
 

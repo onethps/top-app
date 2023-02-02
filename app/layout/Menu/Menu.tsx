@@ -1,40 +1,43 @@
-import { useContext } from "react";
-import { AppContext } from "../../context/app.context";
-import {
-  FirstLevelMenuItem,
-  MenuItem,
-  PageItem,
-} from "../../interfaces/menu.interface";
-import BooksIcon from "../../assets/icons/menu/books.svg";
-import CloudIcon from "../../assets/icons/menu/cloud.svg";
-import GraduationIcon from "../../assets/icons/menu/graduation.svg";
-import PackageIcon from "../../assets/icons/menu/package.svg";
-import { TopLevelCategory } from "../../interfaces/page.interface";
-import styles from "./Menu.module.css";
-import cn from "classnames";
+// import BooksIcon from '../../  /books.svg';
+import { AppContext } from 'app/context/app.context';
+import cn from 'classnames';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
+
+import BooksIcon from '@/assets/icons/menu/books.svg';
+import CloudIcon from '@/assets/icons/menu/cloud.svg';
+import GraduationIcon from '@/assets/icons/menu/graduation.svg';
+import PackageIcon from '@/assets/icons/menu/package.svg';
+
+import { FirstLevelMenuItem, PageItem } from '@/interfaces/menu.interface';
+import { TopLevelCategory } from '@/interfaces/page.interface';
+
+import styles from './Menu.module.css';
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
   {
-    route: "courses",
-    name: "Курсы",
+    route: 'courses',
+    name: 'Курсы',
     icon: <GraduationIcon />,
     id: TopLevelCategory.Courses,
   },
+
   {
-    route: "services",
-    name: "Сервисы",
+    route: 'services',
+    name: 'Сервисы',
     icon: <CloudIcon />,
     id: TopLevelCategory.Services,
   },
   {
-    route: "books",
-    name: "Книги",
+    route: 'books',
+    name: 'Книги',
     icon: <BooksIcon />,
     id: TopLevelCategory.Books,
   },
   {
-    route: "products",
-    name: "Продукты",
+    route: 'products',
+    name: 'Продукты',
     icon: <PackageIcon />,
     id: TopLevelCategory.Products,
   },
@@ -42,6 +45,7 @@ const firstLevelMenu: FirstLevelMenuItem[] = [
 
 export const Menu = () => {
   const { menu, setMenu, firstCategory } = useContext(AppContext);
+  const router = useRouter();
 
   const renderFirstLevel = () => {
     return (
@@ -49,7 +53,7 @@ export const Menu = () => {
         {firstLevelMenu.map((menu) => {
           return (
             <div key={menu.route}>
-              <a href={`/${menu.route}`}>
+              <Link href={`/${menu.route}`}>
                 <div
                   className={cn(styles.firstLevel, {
                     [styles.firstLevelActive]: menu.id === firstCategory,
@@ -58,7 +62,7 @@ export const Menu = () => {
                   {menu.icon}
                   <span>{menu.name}</span>
                 </div>
-              </a>
+              </Link>
               {menu.id == firstCategory && renderSecondLevel(menu)}
             </div>
           );
@@ -70,6 +74,9 @@ export const Menu = () => {
     return (
       <div className={styles.secondBlock}>
         {menu.map((m) => {
+          if (m.pages.map((p) => p.alias).includes(router.asPath.split('/')[2])) {
+            m.isOpened = true;
+          }
           return (
             <div key={m._id.secondCategory}>
               <div className={styles.secondLevel}>{m._id.secondCategory}</div>
@@ -89,15 +96,15 @@ export const Menu = () => {
   const renderThirdLevel = (page: PageItem[], route: string) => {
     return page.map((p) => {
       return (
-        <a
-          key={p._id}
-          href={`/${route}/${p.alias}`}
-          className={cn(styles.thirdLevel, {
-            [styles.thirdLevelActive]: true,
-          })}
-        >
-          {p.category}
-        </a>
+        <Link key={p._id} href={`/${route}/${p.alias}`}>
+          <div
+            className={cn(styles.thirdLevel, {
+              [styles.thirdLevelActive]: true,
+            })}
+          >
+            {p.category}
+          </div>
+        </Link>
       );
     });
   };

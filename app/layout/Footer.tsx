@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes } from 'react';
 
 interface IFooterProps extends HTMLAttributes<HTMLDivElement> {}
 
