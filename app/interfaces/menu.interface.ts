@@ -1,9 +1,5 @@
 import { TopLevelCategory } from './page.interface';
 
-export interface Id {
-  secondCategory: string;
-}
-
 export interface PageItem {
   alias: string;
   title: string;
@@ -12,7 +8,9 @@ export interface PageItem {
 }
 
 export interface MenuItem {
-  _id: Id;
+  _id: {
+    secondCategory: string;
+  };
   pages: PageItem[];
   isOpened?: boolean;
 }

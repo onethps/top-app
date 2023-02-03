@@ -11,12 +11,12 @@
 	gap: 20px;
 }
 
-.firstLevelActive {
-
+.firstLevelActive span {
+	color: red;
 }
 
 .firstLevelActive svg {
-	fill: var(--primary);
+	fill: red;
 }
 
 .secondLevel {
@@ -26,17 +26,32 @@
 	text-transform: uppercase;
 
 	color: var(--grey-dark);
+	color: #787D85;
+}
+
+.secondLevel span {
+	font-size: 12px;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 16px;
 }
 
 .secondBlock {
-	margin-top: 12px;
+	margin-top: 22px;
+	margin-bottom: 29px;
 	margin-left: 12px;
 	padding-left: 32px;
 
 	border-left: 1px solid black;
 }
 
-.secondLevelBlockOpen:last-child {
+.secondLevelBlock {
+	display: none;
+}
+
+.secondLevelBlockOpen {
+	display: block;
+
 	margin-bottom: 20px;
 }
 
@@ -45,9 +60,12 @@
 
 	cursor: pointer;
 
-	color: var(--grey-dark);
+	font-size: 12px;
 
-	font-size: 14px;
 	font-weight: 500;
 	line-height: 19px;
+}
+
+.thirdLevelActive {
+	color: red;
 }
