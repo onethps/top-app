@@ -1,0 +1,16 @@
+.wrapper {
+	display: grid;
+
+	padding: 25px 32px;
+
+	color: white;
+	background: #7653FC;
+	grid-template-columns: 1fr auto auto;
+	column-gap: 40px;
+}
+
+@media (max-width: 765px) {
+	.wrapper {
+		grid-template-columns: 1fr;
+	}
+}

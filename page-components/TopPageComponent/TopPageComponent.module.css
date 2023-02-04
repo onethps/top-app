@@ -1,11 +1,169 @@
-.button {
+.wrapper {
+	margin-top: 40px;
+}
+
+.wrapper h2 {
+	color: #3B434E;
+
+	font-size: 22px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 30px;
+}
+
+.headerPage {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	column-gap: 19px;
+	justify-items: left;
+}
+
+.productsCount {
+	padding: 5px 10px;
+
 	color: white;
+	border-radius: 20px;
+	background: #B3C0D9;
 }
 
-.primary {
-	background-color: green;
+.headerTitle {
+	color: #3B434E;
+
+	font-size: 26px;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 35px;
 }
 
-.secondary {
-	background-color: yellow;
+.jobsHeader {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 20px;
+	justify-items: left;
+
+	align-items: center;
+}
+
+.hhLogo {
+	padding: 3px 9px;
+
+	color: white;
+	border-radius: 20px;
+	background-color: red;
+}
+
+.jobsCardsContainer {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	column-gap: 30px;
+}
+
+.jobsLevelsCardsContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.countCard {
+	padding: 20px;
+
+	text-align: center;
+}
+
+.jobCard {
+	display: grid;
+
+	padding: 21px;
+
+	text-align: center;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.jobCard div {
+	border-right: 1px solid rgb(0 0 0 / 26.2%);
+}
+
+.jobCard div:last-child {
+	border-right: none;
+}
+
+.count {
+	text-align: center;
+
+	color: #7653FC;
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 49px;
+}
+
+.jobPrice {
+	text-align: center;
+
+	color: #3B434E;
+
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 35px;
+}
+
+.advantagesBlock {
+	margin: 30px 0;
+}
+
+.advantagesBlock h2 {
+	margin-bottom: 27px;
+}
+
+.advantages {
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	gap: 10px 40px;
+
+	margin-bottom: 45px;
+}
+
+.advantages h3 {
+	align-self: center;
+
+	font-weight: bold;
+}
+
+.vline {
+	margin: 0 auto;
+
+	border: none;
+	border-left: 1px solid black;
+}
+
+.advantages:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+	.jobsCardsContainer {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+}
+
+@media (max-width: 900px) {
+	.jobCard {
+		display: grid;
+
+		padding: 21px;
+
+		text-align: center;
+		gap: 20px;
+		grid-template-columns: 1fr;
+	}
+
+	.jobCard div {
+		border-right: none;
+		border-bottom: 1px solid rgb(0 0 0 / 26.2%);
+	}
+
+	.jobCard div:last-child {
+		border-bottom: none;
+	}
 }

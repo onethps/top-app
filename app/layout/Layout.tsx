@@ -1,7 +1,7 @@
 import React, { FC, FunctionComponent, ReactNode } from 'react';
 
 import { AppContextProvider, IAppContext } from '../context/app.context';
-import { Footer } from './Footer';
+import { Footer } from './Footer/Footer';
 import { Header } from './Header';
 import styles from './Layout.module.css';
 import { Sidebar } from './Sidebar';
